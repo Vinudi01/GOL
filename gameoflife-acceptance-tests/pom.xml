@@ -13,7 +13,7 @@
         <jetty.stop.port>9999</jetty.stop.port>
         <webdriver.base.url>http://localhost:${jetty.port}</webdriver.base.url>
         <webdriver.driver>firefox</webdriver.driver>
-        <thucydides.version>0.9.268</thucydides.version>
+        <thucydides.version>0.9.275</thucydides.version>
     </properties>
     <dependencies>
         <dependency>
@@ -69,7 +69,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.9</version>
+                <version>3.5.4</version>
                 <configuration>
                     <skip>false</skip>
                 </configuration>
@@ -105,6 +105,18 @@
                 <groupId>net.thucydides.maven.plugins</groupId>
                 <artifactId>maven-thucydides-plugin</artifactId>
                 <version>${thucydides.version}</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>jakarta.xml.bind</groupId>
+                        <artifactId>jakarta.xml.bind-api</artifactId>
+                        <version>2.3.3</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.glassfish.jaxb</groupId>
+                        <artifactId>jaxb-runtime</artifactId>
+                        <version>2.3.3</version>
+                    </dependency>
+                </dependencies>
                 <executions>
                     <execution>
                         <id>thucydides-reports</id>

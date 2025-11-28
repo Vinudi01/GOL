@@ -41,12 +41,12 @@
           </plugin>
             <plugin>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>2.1.1</version>
+                <version>3.5.0</version>
                 <configuration>
-                    <manifest>
-                        <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-                    </manifest>
                     <archive>
+                        <manifest>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                        </manifest>
                         <manifestEntries>
                             <Specification-Title>${project.name}</Specification-Title>
                             <Specification-Version>${project.version}</Specification-Version>
@@ -59,6 +59,18 @@
                 <groupId>net.thucydides.maven.plugins</groupId>
                 <artifactId>maven-thucydides-plugin</artifactId>
                 <version>${thucydides.version}</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>jakarta.xml.bind</groupId>
+                        <artifactId>jakarta.xml.bind-api</artifactId>
+                        <version>2.3.3</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.glassfish.jaxb</groupId>
+                        <artifactId>jaxb-runtime</artifactId>
+                        <version>2.3.3</version>
+                    </dependency>
+                </dependencies>
                 <executions>
                     <execution>
                         <id>thucydides-reports</id>
@@ -106,9 +118,9 @@
                 <plugins>
                     <plugin>
                         <artifactId>maven-surefire-plugin</artifactId>
-                        <version>2.9</version>
+                        <version>3.5.4</version>
                         <configuration>
-                            <skip>true</skip>
+                		<argLine>--add-opens java.base/java.lang=ALL-UNNAMED</argLine>
                         </configuration>
                     </plugin>
                 </plugins>
@@ -124,31 +136,46 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>3.0.2.RELEASE</version>
+            <version>6.1.5</version>
             <type>jar</type>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
-            <version>3.0.2.RELEASE</version>
+            <version>6.1.5</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
-            <version>3.0.2.RELEASE</version>
+            <version>6.1.5</version>
             <type>jar</type>
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>jstl</artifactId>
-            <version>1.2</version>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>6.1.5</version>
         </dependency>
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>2.5</version>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>6.1.5</version>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.servlet.jsp.jstl</groupId>
+            <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.web</groupId>
+            <artifactId>jakarta.servlet.jsp.jstl</artifactId>
+            <version>3.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <version>6.0.0</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
