@@ -5,13 +5,6 @@ pipeline {
   }
 
   stages {
-    
-    stage('build') {
-      steps {
-        sh 'mvn clean install'
-      }
-    }
-
     stage('deploy') {
       steps {
         // copy war file
@@ -20,4 +13,5 @@ pipeline {
     }
   }
 }
+
 
