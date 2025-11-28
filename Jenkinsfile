@@ -14,15 +14,10 @@ pipeline {
 
     stage('deploy') {
       steps {
-        // stop tomcat
-        sh 'sudo systemctl stop tomcat'
-
         // copy war file
-        sh 'sudo cp /home/maxim/.gameoflife-build/gameoflife-web/target/gameoflife.war /opt/tomcat/webapps/'
-
-        // start tomcat
-        sh 'sudo systemctl start tomcat'
+        sh 'cp /home/maxim/.gameoflife-build/gameoflife-web/target/gameoflife.war /opt/tomcat/webapps/'
       }
     }
   }
 }
+
