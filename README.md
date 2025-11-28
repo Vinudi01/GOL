@@ -1,2 +1,0 @@
-# GOL
-learn jenkins
