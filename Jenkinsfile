@@ -10,9 +10,10 @@ pipeline {
 
     stage('deploy') {
       steps {
-        sh 'sudo cp /home/maxim/.gameoflife-build/gameoflife-web/target/gameoflife.war /opt/tomcat/webapps/'
+        sh 'cp /home/maxim/.gameoflife-build/gameoflife-web/target/gameoflife.war /opt/tomcat/webapps/'
       }
     }
   }
 }
+
 
